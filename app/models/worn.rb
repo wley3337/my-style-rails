@@ -1,0 +1,2 @@
+class Worn < ApplicationRecord
+end

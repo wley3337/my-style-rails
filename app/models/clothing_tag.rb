@@ -1,0 +1,2 @@
+class ClothingTag < ApplicationRecord
+end

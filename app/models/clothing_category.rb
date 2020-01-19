@@ -1,0 +1,2 @@
+class ClothingCategory < ApplicationRecord
+end
