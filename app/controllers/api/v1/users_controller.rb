@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
     include UserServices
     def login
         user = User.find_by(username: login_params[:username])
