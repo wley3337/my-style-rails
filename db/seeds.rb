@@ -1,3 +1,10 @@
+# season options
+winter = Season.create!(name: "Winter")
+summer = Season.create!(name: "Summer")
+spring = Season.create!(name: "Spring")
+fall = Season.create!(name: "Fall")
+#-------------perminent seeds above----------- 
+
 # User
 u1 = User.create!(first_name: "Will", last_name: "Ley", password: "123", username: "wley3337")
 
@@ -80,11 +87,7 @@ ClothingTag.create!(tag: fancy, clothing_item: dress_shirt)
 ClothingTag.create!(tag: fancy, clothing_item: dress_belt)
 
 
-# season options
-winter = Season.create!(name: "Winter")
-summer = Season.create!(name: "Summer")
-spring = Season.create!(name: "Spring")
-fall = Season.create!(name: "Fall")
+
 
 # outfits 
 networking = Outfit.create!(user: u1, name: "Networking", casual: false)
