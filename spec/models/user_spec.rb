@@ -10,11 +10,15 @@ RSpec.describe User, type: :model do
   end
 
   describe 'validations' do 
-    it 'does not allow duplicate usernames' do
-      duplicate_username = build(:user) 
-      valid_username = build(:user, username: "Jr")
-      expect(duplicate_username.valid?).to be(false)
-      expect(valid_username.valid?).to be(true)
+    describe 'does not allow duplicate usernames' do
+      it 'is valid for unique names' do 
+        valid_username = build(:user, username: "Jr")
+        expect(valid_username.valid?).to be(true)
+      end
+      it 'is invalid for duplicates case insensitve' do 
+        duplicate_username = build(:user, username: "bob123") 
+        expect(duplicate_username.valid?).to be(false)
+      end
     end
   end 
 end

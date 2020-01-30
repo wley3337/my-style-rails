@@ -47,7 +47,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
             it 'returns errors: full_error messages' do 
                 post(:create, params: {user: {firstName: "Bob", lastName: "Patt", password: "123", username: @u1.username}})
                 expect(response.body.include?("Username has already been taken")).to be(true)
-            end 
+            end
         end
     end 
 
