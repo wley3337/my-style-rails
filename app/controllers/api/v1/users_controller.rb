@@ -14,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
         if user.save
             render json: { success: true, user: Serializer::user_json(user), token: "fake_token" }, status: 201
         else 
-            render json: { success: false, errors: user.errors.full_messages}, status: 409
+            render json: { success: false, errors: user.errors.full_messages}, status: 406
         end
     end
 

@@ -39,9 +39,9 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         end
 
         describe 'invalid username' do 
-            it 'returns success: false and status code 409' do 
+            it 'returns success: false and status code 406' do 
                 post(:create, params: {user: {firstName: "Bob", lastName: "Patt", password: "123", username: @u1.username}})
-                expect(response.code).to eq("409")
+                expect(response.code).to eq("406")
                 expect(response.body.include?("false")).to be(true)
             end
             it 'returns errors: full_error messages' do 
