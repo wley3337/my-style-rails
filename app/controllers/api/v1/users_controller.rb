@@ -1,18 +1,25 @@
 class Api::V1::UsersController < ApplicationController
+    skip_before_action :authenticate, only: [:login, :create]
+
     include UserServices
+
     def login
         user = User.find_by(username: login_params[:username])
         if user && user.authenticate(login_params[:password])
-            render json: { success: true, user: Serializer::user_json(user), token: "fake_token" }
+            render json: { success: true, user: Serializer::user_json(user), token: generate_token(user) }
         else
             render json: { success: false }, status: 409
         end
     end 
 
+    def auto_login
+        render json: { success: true, user: Serializer::user_json(@current_user), token: generate_token(@current_user) } 
+    end
+
     def create
         user = User.new(create_params_json)
         if user.save
-            render json: { success: true, user: Serializer::user_json(user), token: "fake_token" }, status: 201
+            render json: { success: true, user: Serializer::user_json(user), token: generate_token(user) }, status: 201
         else 
             render json: { success: false, errors: user.errors.full_messages}, status: 406
         end
