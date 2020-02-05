@@ -3,6 +3,14 @@ winter = Season.create!(name: "Winter")
 summer = Season.create!(name: "Summer")
 spring = Season.create!(name: "Spring")
 fall = Season.create!(name: "Fall")
+
+# Clothing categories
+top = Category.create!(title: "top")
+bottom = Category.create!(title: "bottom")
+accessory = Category.create!(title: "accessory")
+shoes = Category.create!(title: "shoes")
+socks = Category.create!(title: "socks")
+dress = Category.create!( title: "dress") # this might be a meta category eventually that creates a top and a bottom relationship
 #-------------perminent seeds above----------- 
 
 # User
@@ -35,13 +43,7 @@ basic_belt = ClothingItem.create!(closet: closet, title: "Basic Belt", img_url: 
 
 dress_belt = ClothingItem.create!(closet: closet, title: "Dress Belt", img_url: "https://slimages.macysassets.com/is/image/MCY/products/9/optimized/3511629_fpx.tif?op_sharpen=1&wid=500&hei=613&fit=fit,1&$filtersm$")
 
-# Clothing categories
-top = Category.create!(title: "top")
-bottom = Category.create!(title: "bottom")
-accessory = Category.create!(title: "accessory")
-shoes = Category.create!(title: "shoes")
-socks = Category.create!(title: "socks")
-dress = Category.create!( title: "dress") # this might be a meta category eventually that creates a top and a bottom relationship 
+ 
 
 # ClothingCategory Relationships
 basic_belt_accessory = ClothingCategory.create!(clothing_item: basic_belt, category: accessory)
